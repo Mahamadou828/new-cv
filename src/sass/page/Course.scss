@@ -1,0 +1,108 @@
+.course {
+  background-color: $white;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 50px;
+
+  @include deskop {
+    padding-right: 0px;
+    padding-left: 10px;
+  }
+
+  .btn-primary {
+    display: block;
+    margin: 10px auto;
+    margin-bottom: 25px;
+    text-align: center;
+    max-width: 150px;
+  }
+
+  ul {
+    padding-left: 0px;
+  }
+
+  &-item {
+    &-5 {
+      max-width: 60%;
+    }
+    &-4 {
+      max-width: 40%;
+      @include deskop {
+        padding-right: 15px;
+      }
+    }
+
+    @include mobile-only {
+      &-5,
+      &-4 {
+        max-width: 90% !important;
+        width: 90%;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  border-left: 1px solid $secondary-font-color;
+  position: relative;
+
+  &::before {
+    content: "\00B0";
+    font-size: 30px;
+    color: $main-color;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    transform: translate(-55%, 0%);
+    background: $white;
+    height: 25px;
+  }
+
+  header {
+    font-size: 12px;
+    font-weight: 400;
+    margin-right: 25px;
+    padding-top: 10px;
+
+    h4 {
+      margin: 0px;
+    }
+
+    span {
+      color: $secondary-font-color;
+    }
+  }
+
+  &-content {
+    h4 {
+      margin: 10px 0px;
+    }
+
+    ul {
+      list-style: disc !important;
+      padding-left: 35px;
+    }
+
+    ul,
+    p {
+      font-size: 0.92em;
+    }
+  }
+}
+
+.progress {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  background: $white !important;
+  border: 1px solid $main-color;
+
+  .MuiLinearProgress-bar {
+    background: $main-color !important;
+    border: 2px solid $white;
+    border-left-color: $white;
+  }
+}

@@ -1,0 +1,112 @@
+.contact {
+  padding: 0px 25px;
+  @include mobile-only {
+    padding: 0px;
+  }
+
+  &-info {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding: 20px 10px;
+    width: 150px;
+    height: 125px;
+    border: 1px solid $secondary-font-color;
+    margin: 0px 15px;
+    word-break: break-all;
+    padding-bottom: 0px;
+    h4 {
+      font-size: 16px;
+    }
+    svg {
+      font-size: 40px;
+      color: $secondary-font-color;
+    }
+
+    @include mobile-only {
+      width: 100%;
+      margin: 0px;
+      border-right: none;
+      border-left: none;
+      margin-bottom: 10px;
+      border-color: $background;
+      padding: 0px;
+    }
+  }
+
+  &-form {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 25px;
+    background: rgba(246, 249, 254, 0) url(../image/map.png) no-repeat scroll
+      center center;
+    margin: 0px !important;
+    padding: 15px 0px;
+
+    h3 {
+      padding-left: 50px;
+    }
+
+    input,
+    textarea {
+      font-size: 14px !important;
+      padding: 0px 15px !important;
+      border: none !important;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1) !important;
+      transition: 0.5s !important;
+      outline: none !important;
+      font-weight: 400 !important;
+      line-height: 1.5 !important;
+      background-color: $white !important;
+      background-clip: padding-box !important;
+      overflow: visible !important;
+      margin: 10px auto !important;
+      max-width: 320px !important;
+      width: 320px !important;
+      font-family: $primary-font !important;
+      min-height: 50px;
+
+      @include mobile-only {
+        width: 250px !important;
+      }
+    }
+
+    button {
+      max-width: 150px;
+      width: 150px;
+      cursor: pointer;
+      font-family: $primary-font !important;
+      font-size: 15px;
+      margin: 0 auto;
+    }
+  }
+}
+
+.mapouter {
+  position: relative;
+  text-align: right;
+  height: 180px;
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 50px;
+}
+.gmap_canvas {
+  overflow: hidden;
+  background: none !important;
+  height: 180px;
+  width: 100%;
+}
+
+@include mobile-only {
+  .gmap_canvas,
+  .mapouter,
+  iframe {
+    width: 280px;
+    margin: 0 auto;
+  }
+}
+
+iframe {
+  border: none;
+}
