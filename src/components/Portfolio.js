@@ -98,8 +98,6 @@ const Image = [
 
 function Portfolio({ className }) {
   const classes = useStyles();
-  const [fullImage, setFullImage] = React.useState(null);
-  const [open, setOpen] = React.useState(false);
 
   return (
     <section className={`portfolio ${className}`}>
