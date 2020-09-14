@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import CountUp from 'react-countup';
 
 const CertificatsOpen = [
   {
@@ -103,12 +104,15 @@ function Certificat({ className }) {
     <section className={`certificat ${className}`}>
       <header className="header">
         <h2>Certificats</h2>
-        <span>Trouvez plus linkedin ou malt</span>
+        <span>Trouvez plus sur linkedin ou malt</span>
       </header>
       <ul>
         <li>
           <h3>
-            <span className="underline">Openclassrooms</span>
+            <span className="underline">
+              Openclassrooms{' '}
+              <CountUp duration={8} end={CertificatsOpen.length} />
+            </span>
           </h3>
           <ul>
             {CertificatsOpen.map((item, index) => (
@@ -124,7 +128,9 @@ function Certificat({ className }) {
         </li>
         <li>
           <h3>
-            <span className="underline">Udemy</span>
+            <span className="underline">
+              Udemy <CountUp duration={8} end={Udemy.length} />
+            </span>
           </h3>
           <ul>
             {Udemy.map((item, index) => (

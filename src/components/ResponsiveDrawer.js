@@ -3,6 +3,8 @@ import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 import AppsIcon from '@material-ui/icons/Apps';
+import CloseIcon from '@material-ui/icons/Close';
+import Fab from '@material-ui/core/Fab';
 
 function ResponsiveDrawer({ children }) {
   const [state, setState] = React.useState(false);
@@ -26,6 +28,16 @@ function ResponsiveDrawer({ children }) {
           <Button onClick={toggleDrawer(true)}>
             <AppsIcon />
           </Button>
+          {state ? (
+            <Fab
+              size="small"
+              aria-label="add"
+              className="drawer-close"
+              onClick={toggleDrawer(false)}
+            >
+              <CloseIcon />
+            </Fab>
+          ) : null}
         </div>
         <Drawer anchor={'left'} open={state} onClose={toggleDrawer(false)}>
           {children}

@@ -110,3 +110,20 @@
 iframe {
   border: none;
 }
+
+.error {
+  display: block;
+  color: $white;
+  background: $error-color;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 16px;
+  line-height: 1.43;
+  font-size: 0.875rem;
+  border-radius: 4px;
+  letter-spacing: 1.5px;
+  max-width: 300px;
+  margin: 16px auto;
+}

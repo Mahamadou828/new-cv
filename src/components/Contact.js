@@ -45,6 +45,8 @@ export default function Contact({ className }) {
         newError.subject = 'Sujet Requis';
       } else if (question.length <= 0) {
         newError.question = 'Une petite question ?)';
+      } else if (!VerifyEmail(email)) {
+        newError.email = "L'email est requis";
       } else {
         const message = {
           firstname: 'not required',
@@ -53,7 +55,6 @@ export default function Contact({ className }) {
           phone: 'not required',
           message: subject,
         };
-
         const xhttp = new XMLHttpRequest();
         xhttp.open('POST', 'http://mahamadou-cv.com/php/contact.php');
         xhttp.onreadystatechange = function () {
@@ -61,11 +62,16 @@ export default function Contact({ className }) {
             console.log('Fait');
           } else {
             console.log(this.status);
+            newError.general =
+              "L'email est pour le moment indisponible 😥 privilégié link ou malt";
+            setError({ ...newError });
           }
         };
         xhttp.send(JSON.stringify(message));
       }
+      ({ ...newError });
     } catch (error) {
+      console.log("l'erreur", error);
       newError.general = 'Veuillez remplir le formulaire';
     }
 
@@ -96,7 +102,7 @@ export default function Contact({ className }) {
 
       <form action="" className="contact-form">
         <h3>
-          <span className="underline">Comment Puis-je vous aidez</span>
+          <span className="underline">Contacter moi on se fera un zoom 🙂</span>
         </h3>
         <input
           type="email"

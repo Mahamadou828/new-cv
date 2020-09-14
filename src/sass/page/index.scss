@@ -117,7 +117,7 @@ img {
       }
     }
 
-    button {
+    button:not(.drawer-close) {
       transition: all ease-in 0.3s;
       &:hover {
         color: $main-color;
@@ -133,6 +133,21 @@ img {
   &-menu {
     margin: 0px !important;
     min-width: 300px;
+  }
+
+  &-close {
+    position: absolute !important;
+    top: 5px;
+    left: 5px;
+    z-index: 1500;
+    background: $white !important;
+    box-shadow: none !important;
+    border: 1px solid $main-color !important;
+    color: $main-color !important;
+    &:hover {
+      background: $main-color !important;
+      color: $white !important;
+    }
   }
 }
 

@@ -40,10 +40,10 @@ export default function Home({ className }) {
             <span className="underline">Qui suis-je ?</span>{' '}
           </h3>
           <p>
-            {` Développeur et autodidacte, je me suis lancé il y a 1 an  dans l'apprentissage de ce métier de la
-            techn. Aujourd'hui j’aide les entreprise à développer des applications et des sites internet leur permettant ainsi de créer 
-            une présence sur le web, que ce soit des sites e-commerce ou des sites destinés à présenter votre activité. 
-            Ma mission est de réaliser des applications de qualités afin de vous aider à atteindre vos objectifs sur le web.`}
+            {`Développeur et autodidacte, je me suis lancé il y a 1 an  dans l'apprentissage de ce métier de la
+            techn. Aujourd'hui j’aide les entreprise à développer des applications web leur permettant de profiter de l'ère du numérique
+            , que ce soit des sites e-commerce, des sites vitrine ou des applications de gestion 
+            ma priorité est de vous aider à simplifier votre activité.`}
           </p>
           <a href="./asset/CV.pdf" className="btn-primary btn-medium" download>
             Telecharger Le Cv
@@ -60,7 +60,7 @@ export default function Home({ className }) {
                 <h4>Web App</h4>
                 <p>
                   Sites e-commerce, réseaux sociaux, admin manager ma mission
-                  est de vousapportez une solution confortable et flexible afin
+                  est de vous apportez une solution confortable et flexible afin
                   de résoudre vos problèmes.
                 </p>
               </header>
@@ -71,7 +71,7 @@ export default function Home({ className }) {
                 <h4>Application Mobile</h4>
                 <p>
                   Création {`d'application`} mobile cross-platform je developpe
-                  une solution mobile a vos problèmes
+                  une solution mobile à vos problèmes.
                 </p>
               </header>
             </section>
