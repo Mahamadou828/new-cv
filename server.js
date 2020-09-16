@@ -2,8 +2,7 @@
 var express = require('express');
 var path = require('path');
 
-var port = process.env.PORT || 3000;
-const host = '0.0.0.0';
+const { PORT = 8080, LOCAL_ADDRESS = '0.0.0.0' } = process.env;
 var app = express();
 
 app.use(express.static(path.join(__dirname, 'dist')));
@@ -12,7 +11,7 @@ app.get('*', (_req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
-app.listen(port, host, (err) => {
+app.listen(PORT, LOCAL_ADDRESS, (err) => {
   if (err) {
     console.log(err);
   } else {
