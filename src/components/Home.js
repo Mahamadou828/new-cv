@@ -45,7 +45,11 @@ export default function Home({ className }) {
             , que ce soit des sites e-commerce, des sites vitrine ou des applications de gestion 
             ma priorité est de vous aider à simplifier votre activité.`}
           </p>
-          <a href="./asset/CV.pdf" className="btn-primary btn-medium" download>
+          <a
+            href="http://mahamadou-cv.com/images/CV.pdf"
+            className="btn-primary btn-medium"
+            download
+          >
             Telecharger Le Cv
           </a>
         </li>

@@ -207,7 +207,11 @@ export default function Course({ className }) {
         </article>
       </div>
 
-      <a href="./asset/CV.pdf" className="btn-primary btn-medium" download>
+      <a
+        href="http://mahamadou-cv.com/images/CV.pdf"
+        className="btn-primary btn-medium"
+        download
+      >
         Telecharger Le Cv
       </a>
     </section>
