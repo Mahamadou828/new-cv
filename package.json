@@ -3,7 +3,7 @@
   "version": "7.0.1",
   "description": "Starter kit for creating apps with React and Redux",
   "engines": {
-    "node": ">=8",
+    "node": "6.11.1",
     "npm": ">=3"
   },
   "scripts": {
@@ -20,6 +20,8 @@
     "remove-dist": "node_modules/.bin/rimraf ./dist",
     "prebuild": "npm run lint && npm run test && npm run clean-dist",
     "build": "babel-node tools/build.js && npm run open:dist",
+    "heroku-prebuild": "",
+    "heroku-postbuild": "babel-node tools/build.js",
     "test": "jest",
     "test:CI": "jest",
     "test:cover": "npm run test -- --coverage ",
@@ -35,6 +37,7 @@
     "@material-ui/core": "4.11.0",
     "@material-ui/icons": "4.9.1",
     "connected-react-router": "6.5.2",
+    "express": "4.17.1",
     "object-assign": "4.1.1",
     "react": "16.11.0",
     "react-countup": "4.3.3",

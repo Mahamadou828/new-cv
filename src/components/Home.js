@@ -9,7 +9,7 @@ export default function Home({ className }) {
     <article className={`home ${className}`}>
       <header className="home-banner">
         <img
-          src="../image/computer-1245714_1280.jpg"
+          src="http://mahamadou-cv.com/images/computer-1245714_1280.jpg"
           className="home-banner_image"
           alt=""
         />
