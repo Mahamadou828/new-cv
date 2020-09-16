@@ -3,7 +3,7 @@
   "version": "7.0.1",
   "description": "Starter kit for creating apps with React and Redux",
   "engines": {
-    "node": "6.11.1",
+    "node": ">=8",
     "npm": ">=3"
   },
   "scripts": {
