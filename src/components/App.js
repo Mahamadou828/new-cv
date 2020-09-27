@@ -1,21 +1,34 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './Home';
-import ResponsiveSideBar from '../Helpers/ResponsiveSideBar';
-import Course from './Course';
+import ContainerHelpers from '../Helpers/ContainerHelpers';
+import About from './About';
 import Contact from './Contact';
-import Portfolio from './Portfolio';
-import Certificat from './Certificat';
+import Home from './Home';
+import Resume from './Resume';
 
 function App() {
+  const [redirect, setRedirect] = React.useState(false);
+
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={ResponsiveSideBar(Home)} />
-        <Route path="/Parcours" component={ResponsiveSideBar(Course)} />
-        <Route path="/Contact" component={ResponsiveSideBar(Contact)} />
-        <Route path="/Portfolio" component={ResponsiveSideBar(Portfolio)} />
-        <Route path="/Certificats" component={ResponsiveSideBar(Certificat)} />
+        <Route
+          exact
+          path="/"
+          component={ContainerHelpers(Home, { redirect, setRedirect })}
+        />
+        <Route
+          path="/about"
+          component={ContainerHelpers(About, { redirect, setRedirect })}
+        />
+        <Route
+          path="/resume"
+          component={ContainerHelpers(Resume, { redirect, setRedirect })}
+        />
+        <Route
+          path="/contact"
+          component={ContainerHelpers(Contact, { redirect, setRedirect })}
+        />
       </Switch>
     </Router>
   );

@@ -1,110 +1,80 @@
+$pure-black: #000;
+
 .home {
-  max-width: 90%;
-  background: $white;
-
-  @include deskop {
-    max-width: 100%;
-  }
-
-  &-banner {
-    text-align: center;
-    position: relative;
-    max-width: 95%;
-    margin: 0 auto;
-    @include deskop {
-      min-width: 100%;
-    }
-
+  background-color: $pure-black;
+  &-header {
+    position: absolute;
+    top: 0px;
+    left: 40%;
+    transform: translate(-50%, 50%);
     @include mobile-only {
-      height: 350px;
-      background: rgba(246, 249, 254, 0) url(../image/computer-1245714_1280.jpg)
-        no-repeat scroll center center;
-    }
-
-    h1 {
-      margin-top: 0px;
-    }
-    &::before {
-      content: "";
-      position: absolute;
-      top: 0px;
-      left: 0px;
-      background: #333333;
-      opacity: 0.8;
       width: 100%;
-      height: 98.5%;
-    }
-
-    &_text {
-      position: absolute;
-      top: 50%;
+      text-align: center;
       left: 50%;
-      transform: translate(-50%, -50%);
-      margin-bottom: 20px;
-      color: $background;
-      letter-spacing: 5px;
-      font-size: 22px !important;
-      font-weight: 600;
-
-      @include mobile-only {
-        width: 300px;
-        font-size: 16px !important;
-      }
     }
-
-    &_image {
-      @include mobile-only {
-        display: none;
-      }
-    }
-  }
-
-  &-list {
-    list-style: none;
-
-    &_item {
-      margin-bottom: 35px;
-
-      h3 {
-        margin-top: 0px;
-      }
-    }
-
-    .home-service {
-      display: flex;
-      flex-direction: row;
-
-      svg {
-        margin-top: 20px;
-        margin-right: 5px;
-        font-size: 42px;
-        color: $secondary-font-color;
-      }
-
-      header {
-        h4 {
-          font-size: 18px;
-          line-height: 1.5em;
-          font-weight: 600;
+    h1 {
+      padding-left: 15px;
+      span {
+        font-family: $title-font !important;
+        line-height: 1.2em;
+        animation: animtext-up 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+        animation-delay: calc(0.2s * var(--word-index));
+        --word-percent: calc(var(--word-index) / var(--word-total));
+        --line-percent: calc(var(--line-index) / var(--line-total));
+        font-size: 65px;
+        font-weight: 300;
+        box-sizing: border-box;
+        @include mobile-only {
+          font-size: 35px;
         }
       }
     }
   }
 
-  &-exploit {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  .waves {
+    min-height: 800px;
 
-    p {
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-      margin: 16px;
-      strong,
-      span {
-        font-size: 20px;
-        color: $main-color;
+    @include mobile-only {
+      min-height: 500px;
+    }
+
+    canvas {
+      height: 100%;
+    }
+  }
+
+  &-btn {
+    position: relative;
+
+    @include mobile-only {
+      margin: 0 auto !important;
+    }
+    &::before {
+      content: "";
+      width: 50px;
+      position: absolute;
+      height: 25px;
+      left: 0px;
+      transform: translateX(-100%);
+      background-color: $white;
+      transition: all ease-out 0.6s;
+      opacity: 0.3;
+    }
+    margin-top: 75px !important;
+
+    svg {
+      transition: all ease-out 0.6s;
+    }
+    &:hover {
+      svg {
+        transform: translateX(22px);
+      }
+
+      &::before {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        transform: translateX(400%);
       }
     }
   }

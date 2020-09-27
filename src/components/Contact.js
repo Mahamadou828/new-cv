@@ -1,180 +1,82 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
-import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
-import EmailIcon from '@material-ui/icons/Email';
-import PhoneIcon from '@material-ui/icons/Phone';
-import VerifyEmail from '../function';
+import { Button } from '@material-ui/core';
 
-const Item = [
-  {
-    Icon: <LocationOnIcon />,
-    text: 'Moscou',
-  },
-  {
-    Icon: <PhoneIcon />,
-    text: '+79206827443',
-  },
-  {
-    Icon: <EmailIcon />,
-    text: 'opmadou@gmail.com',
-  },
-  {
-    Icon: <CheckCircleOutlineIcon />,
-    text: 'Actuellement disponible',
-  },
-];
-
-export default function Contact({ className }) {
-  let name, email, subject, question;
-
-  const [error, setError] = React.useState({
-    email: '',
-    name: '',
-    subject: '',
-    question: '',
-    general: '',
-  });
-
-  const sendMessage = () => {
-    const newError = { ...error };
-    try {
-      if (name.length <= 0) {
-        newError.name = 'Nom Requis';
-      } else if (subject.length <= 0) {
-        newError.subject = 'Sujet Requis';
-      } else if (question.length <= 0) {
-        newError.question = 'Une petite question ?)';
-      } else if (!VerifyEmail(email)) {
-        newError.email = "L'email est requis";
-      } else {
-        const message = {
-          firstname: 'not required',
-          name,
-          email,
-          phone: 'not required',
-          message: subject,
-        };
-        const xhttp = new XMLHttpRequest();
-        xhttp.open('POST', 'http://mahamadou-cv.com/php/contact.php');
-        xhttp.onreadystatechange = function () {
-          if (this.readyState == 4 && this.status == 200) {
-            console.log('Fait');
-          } else {
-            console.log(this.status);
-            newError.general =
-              "L'email est pour le moment indisponible 😥 privilégié link ou malt";
-            setError({ ...newError });
-          }
-        };
-        xhttp.send(JSON.stringify(message));
-      }
-      ({ ...newError });
-    } catch (error) {
-      console.log("l'erreur", error);
-      newError.general = 'Veuillez remplir le formulaire';
-    }
-
-    setError({ ...newError });
-  };
-
+function Contact({ className }) {
   return (
-    <section className={`contact ${className}`}>
-      <header className="header">
+    <section className={`${className} contact`}>
+      <header className="global-page_title text-center space-magTop">
         <h2>Contact</h2>
       </header>
-      <div className="mapouter">
-        <div className="gmap_canvas">
-          <iframe
-            width="100%"
-            height="180"
-            id="gmap_canvas"
-            src="https://maps.google.com/maps?q=11%20ya%20parkovaya%20ulitsa&t=&z=13&ie=UTF8&iwloc=&output=embed"
-            scrolling="no"
-          ></iframe>
-          <a href="https://torrent9-site.org"></a>
-        </div>
-      </div>
 
-      <div className="row">
-        {Item.map((elt, index) => RenderItem({ elt, key: index }))}
-      </div>
+      <div className="display-tablet container display-responsive_space display-center">
+        <section className="display-column notscroll contact-elt">
+          <header className="global-page_title underline text-center ">
+            <h3>Me contacter</h3>
+          </header>
+          <p>
+            Pour plus {`d'informations`} sur {`l'un`} de nos services ou pour
+            discuter de la manière dont nous pouvons vous aider, veuillez nous
+            contacter en utilisant le formulaire ci-contre. Ou vous pouvez
+            appeler et suivre nos réseaux sociaux.
+          </p>
+          <p className="display-column">
+            <strong>
+              <u>Phone:</u>
+            </strong>
+            <span>(+7)9206827443</span>
+          </p>
+          <p className="display-column">
+            <strong>
+              <u>Email:</u>
+            </strong>
+            <span>opmadou@gmail.com</span>
+          </p>
+          <p className="display-column">
+            <strong>
+              <u>Follow:</u>
+            </strong>
+            <span className="display-row display-responsive_space follow">
+              <a
+                className="contact-link"
+                href="https://linkedin.com/in/mahamadou-samaké"
+              >
+                <i className="fab fa-linkedin"></i>
+              </a>
+              <a
+                className="contact-link"
+                href="https://www.malt.fr/profile/mahamadousamake#profileRecommendations"
+              >
+                <i className="fab fa-mastodon"></i>
+              </a>
+              <a
+                className="contact-link"
+                href="https://github.com/Mahamadou828"
+              >
+                <i className="fab fa-github"></i>
+              </a>
+            </span>
+          </p>
+        </section>
 
-      <form action="" className="contact-form">
-        <h3>
-          <span className="underline">Contacter moi on se fera un zoom 🙂</span>
-        </h3>
-        <input
-          type="email"
-          placeholder="Votre email"
-          onChange={(e) => {
-            email = e.target.value;
-            if (!VerifyEmail(email)) {
-              setError({
-                ...error,
-                email,
-              });
-            }
-          }}
-        />
-        <input
-          type="text"
-          placeholder="Votre Nom Complet"
-          onChange={(e) => {
-            name = e.target.value;
-          }}
-        />
-        <input
-          type="text"
-          placeholder="Le Sujet"
-          onChange={(e) => {
-            subject = e.target.value;
-          }}
-        />
-        <textarea
-          placeholder="Votre Question"
-          id=""
-          cols="30"
-          rows="7"
-          onChange={(e) => {
-            question = e.target.value;
-          }}
-        ></textarea>
-        {error.general.length > 0 ? (
-          <p className="error">Veuillez Remplir Le Formulaire</p>
-        ) : null}
-        <button
-          className="btn-primary btn-medium"
-          onClick={(e) => {
-            e.preventDefault();
-            sendMessage();
-          }}
-        >
-          Envoyer
-        </button>
-      </form>
+        <form className="display-column contact-form">
+          <input type="email" placeholder="Votre email" />
+          <input type="text" placeholder="Votre Nom Complet" />
+          <textarea
+            placeholder="Votre Question"
+            id=""
+            cols="30"
+            rows="7"
+          ></textarea>
+          <Button className="btn btn-primary btn-medium">Envoyer</Button>
+        </form>
+      </div>
     </section>
   );
 }
 
-function RenderItem({ elt, key }) {
-  const { Icon, text } = elt;
-  return (
-    <div className="contact-info" key={key}>
-      {Icon}
-      <h4>{text}</h4>
-    </div>
-  );
-}
-
-RenderItem.propTypes = {
-  elt: PropTypes.shape({
-    Icon: PropTypes.object,
-    text: PropTypes.string.isRequired,
-  }),
-  key: PropTypes.string,
-};
-
 Contact.propTypes = {
   className: PropTypes.string.isRequired,
 };
+
+export default Contact;

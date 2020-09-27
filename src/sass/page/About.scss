@@ -1,0 +1,144 @@
+.about {
+  background: $main-background !important;
+
+  .header {
+    font-size: 26px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    h3 {
+      font-family: "Source Serif Pro", serif;
+      margin-top: 0px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &-info {
+    margin-left: 20px;
+    min-width: 50% !important;
+
+    ul {
+      padding: 0px;
+      width: 50%;
+      margin-bottom: 20px;
+
+      @include mobile-only {
+        width: 100%;
+        li {
+          width: 100%;
+        }
+      }
+
+      strong {
+        padding-bottom: 1px;
+        color: #a1a1a1 !important;
+        font-weight: 700;
+        font-size: 18px;
+
+        span {
+          margin-right: 10px;
+          margin-left: 5px;
+        }
+      }
+    }
+
+    p {
+      margin-top: 0px !important;
+      margin-bottom: 20px !important;
+      max-width: 530px;
+      width: 530px;
+      text-align: start;
+      line-height: 27px;
+
+      @include deskop {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      strong {
+        color: $main-color;
+        font-size: 18px;
+      }
+    }
+  }
+
+  &-service {
+    text-align: center;
+    padding: 0px 15px;
+    h3 {
+      font-family: "Source Serif Pro", serif;
+      font-size: 20px;
+    }
+    p {
+      max-width: 400px;
+      margin: 0px;
+    }
+  }
+
+  &-client {
+    max-width: 300px;
+    width: 300px;
+    position: relative;
+  }
+
+  &-avis {
+    &_payload {
+      background: $border-color;
+      padding: 45px 35px;
+      border-radius: 5px;
+      box-shadow: $box-shadown;
+      min-height: 175px;
+      max-width: 445px;
+      margin-bottom: 25px;
+      position: relative;
+      font-size: 14px;
+      line-height: 1.75;
+      font-style: italic;
+      &:before {
+        content: "\201C";
+        color: $main-color;
+        top: -25px;
+        left: 35px;
+        position: absolute;
+        font-size: 75px;
+      }
+    }
+
+    &_info {
+      strong {
+        font-size: 18px;
+        font-weight: 600;
+        text-transform: capitalize;
+        font-family: $secondary-font;
+      }
+
+      mark {
+        font-size: 16px;
+        font-weight: 300;
+        text-transform: capitalize;
+        font-family: $secondary-font;
+        background: none;
+        color: $white;
+      }
+
+      i {
+        font-size: 18px;
+      }
+    }
+
+    &_arrow {
+      @include mobile-only {
+        display: none !important;
+      }
+      cursor: pointer;
+      transition: all ease-in 0.3s;
+      &:hover {
+        background-color: $border-color;
+        box-shadow: $box-shadown;
+      }
+
+      i {
+        font-size: 30px;
+      }
+    }
+  }
+}

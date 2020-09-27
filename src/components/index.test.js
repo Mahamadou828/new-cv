@@ -1,3 +1,3 @@
-test(`exple`, () => {
+test('should', () => {
   expect(true).toBe(true);
 });

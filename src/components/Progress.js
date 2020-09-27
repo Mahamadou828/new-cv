@@ -14,7 +14,7 @@ const BorderLinearProgress = withStyles((theme) => ({
   },
   bar: {
     borderRadius: 5,
-    backgroundColor: '#1a90ff',
+    backgroundColor: '#11739a',
   },
 }))(LinearProgress);
 
@@ -38,11 +38,11 @@ function Progress({ title, pourcent }) {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <h5 className={classes.text}>
+    <div className={`${classes.root} progress-container`}>
+      <div className={`point point-${pourcent}`}>
         <span>{title}</span>
-        <span className={[classes.entiled, classes.text]}>{pourcent}%</span>
-      </h5>
+        <span className={`point-${pourcent}-pourcent`}>{pourcent}%</span>
+      </div>
       <BorderLinearProgress
         className="progress"
         variant="determinate"
